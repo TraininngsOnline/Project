@@ -1,0 +1,107 @@
+
+.user-navbar{
+    background: rgba(0, 0, 0, 1);
+    // position: fixed;
+    // top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    z-index: 9999999;
+   .navbar-btn{
+       display: none;
+   }
+
+    .navbar-list{
+        .navbar-close-btn{
+            display: none;
+        }
+        ul{
+            display: flex;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            li{
+                display: flex;
+                align-items: center;
+
+                a{
+                    text-decoration: none;
+                    margin-left: 1.5rem;
+                    font-size: 16px;
+                    color: #fff;
+                    font-weight: 500;
+                    transition: all 0.4s;
+                    cursor: pointer;
+                    &:hover{
+                        color: blueviolet;
+                    }
+                    @media screen and (max-width:1200px) {
+                        font-size: 14px;
+                        margin-left: 1rem;
+                    }
+                }
+
+                
+            }
+            
+        }
+        
+    }
+    @media screen and (max-width:992px) {
+        .navbar-btn{
+            display: flex;
+        }
+        .d-none{
+            display: none;
+        }
+        .d-flex{
+            display: flex !important;
+        }
+        .navbar-list{
+            display:none;
+            position: fixed;
+            inset: 0 0 0 30%;  
+            background: #000;
+            padding: 5rem 2rem;
+            .navbar-close-btn{
+                display: flex;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            ul{
+                flex-direction: column;
+                li{
+                    a{
+                        margin-bottom: 1rem;
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+        
+    }
+    @media screen and (max-width:767px) {
+        .navbar-list{
+            position: fixed;
+            inset: 0 0 0 15%;  
+            background: #000;
+            padding: 5rem 2rem;
+            z-index: 999999;
+            ul{
+                flex-direction: column;
+                li{
+                    a{
+                        margin-bottom: 1rem;
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+        
+    }
+
+}
+

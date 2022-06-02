@@ -1,0 +1,8 @@
+@import '../admin-variables.scss';
+
+.clr-form-control {
+    align-items: unset;
+    input, select, ::ng-deep .clr-select-wrapper {
+        width: 100% !important;
+    }
+}

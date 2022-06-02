@@ -1,0 +1,39 @@
+.main-footer{
+    background: #000;
+    padding: 1rem;
+    .footerLogo-section{
+        h5{
+            color: #fff;
+        }
+        p{
+            font-size: 16px;
+            font-weight: 500;
+        }
+    }
+    
+    h3{
+        color: #fff;
+        margin-bottom: 1rem;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+    ul {
+        list-style: none;
+        li{
+            a{
+                color: #fff;
+                font-size: 16px;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.small-footer{
+    background: rgb(65, 65, 65);
+    padding: 1rem;
+    p{
+        color: #fff;
+    }
+    
+}

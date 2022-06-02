@@ -1,0 +1,22 @@
+<div class="category-container">
+    <div class="admin-home-title">Category</div>
+    <form clrForm clrLayout="vertical" [formGroup]="categoryForm">
+        <div class="clr-row admin-home-content">
+            <div class="clr-col-12">
+                <clr-input-container>
+                    <label>Webinar Title:</label>
+                    <input clrInput placeholder="" name="title" formControlName="title" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-12">
+                <clr-input-container>
+                    <label>Description:</label>
+                    <input clrInput placeholder="" name="description" formControlName="description" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-12 text-right">
+                <button class="btn btn-primary" (click)="saveCategory()">Capture</button>
+            </div>
+        </div>
+    </form>
+</div>

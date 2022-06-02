@@ -1,0 +1,66 @@
+<section class="homePage-webinars">
+    <div class="container">
+        <div class="clr-row">
+            <div class="clr-col-12 side-headings">
+                <h2 class="">Upcoming Webinars</h2>
+            </div>
+        </div>
+        <div class="clr-row">
+            <div class="clr-col-xl-3 clr-col-lg-3 clr-col-md-6 clr-col-12" *ngFor="let webinar of webinars">
+                <div class="card webinar-card">
+                    <div class="card-img">
+                        <img src="{{webinar.webinarImageUrl}}" />
+                    </div>
+                    <div class="card-block">
+                        <div class="card-text ">
+                            <a href="{{baseUrl}}users/webinar-detail?title={{webinar.title}}&id={{webinar.id}}">
+                                <h2 class="webinar-title">{{webinar.title}}</h2>
+                            </a>
+                            <div class="webinar-details">
+                                <div class="webinar-details_one">
+                                    <cds-icon shape="user" size="sm"></cds-icon>
+                                    <span>{{webinar.author.toUpperCase()}}</span>
+                                </div>
+                                <div class="webinar-details_two">
+                                    <cds-icon shape="calendar" size="sm"></cds-icon><span>{{webinar.date}}</span>
+                                </div>
+                            </div>
+                            <div class="webinar-details">
+                                <div class="webinar-details_one">
+                                    <cds-icon shape="clock" size="sm"></cds-icon> <span>{{webinar.pdtTime}} {{getAMPM(webinar.pdtTime)}} PST |
+                                        {{webinar.edtTime}} {{getAMPM(webinar.edtTime)}} EST</span>
+                                </div>
+                                <div class="webinar-details_two">
+                                    <cds-icon shape="alarm-clock" size="sm"></cds-icon> <span>{{webinar.duration}}
+                                        MINS</span>
+                                </div>
+                            </div>
+                            <div class="webinar-details">
+                                <div class="webinar-details_price">
+                                    <!-- <cds-icon shape="dollar" size="sm"></cds-icon> -->
+                                    $
+                                    <!-- <span>{{webinar.liveOneAttendeePrice}} USD</span> -->
+                                    <ng-container *ngIf="!isValid(webinar.disliveOneAttendeePrice)">
+                                        {{webinar.liveOneAttendeePrice}}
+                                    </ng-container>
+                                    <ng-container *ngIf="isValid(webinar.disliveOneAttendeePrice)">
+                                            <del>{{webinar.liveOneAttendeePrice}}</del> &nbsp; ${{webinar.disliveOneAttendeePrice}}
+                                    </ng-container>
+                                    USD
+                                </div>
+                                <div class="webinar-details_view">
+                                    <!-- <button type="button" class="btn btn-icon btn-success" aria-label="settings"
+                                        (click)="viewDetails(webinar)"> -->
+                                    <a class="btn btn-icon btn-success" href="{{baseUrl}}users/webinar-detail?title={{webinar.title}}&id={{webinar.id}}">
+                                        <cds-icon shape="eye" size="sm"></cds-icon> View
+                                    </a>
+                                    <!-- </button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

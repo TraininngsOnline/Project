@@ -1,0 +1,104 @@
+<section class="contact-page">
+    <div class="container">
+        <div class="clr-row">
+            <div class="clr-col-xl-10 clr-offset-xl-1">
+                <div class="clr-row">
+                    <div class="clr-col-12 text-center">
+                        <h2 class="contact-page-heading">Get In Touch</h2>
+                    </div>
+                    <div class="clr-col-lg-6">
+                        <div class="contact-info mb-4 mb-lg-0">
+                            <div class="contact-info-header mb-5">
+                                <h3>Contact Info</h3>
+                                <p class="">Please feel free to get in touch with us for any query or requirement you may have. We will be glad to be of assistance to you. Just choose any of these modes to reach us:</p>
+                            </div>
+                            <div class="clr-row">
+                                <div class="clr-md-6 clr-col-lg-12 clr-col-xl-6">
+                                    <div class="contact-info-card d-flex mb-5">
+                                        <div class="icon">
+                                            <i class="fas fa-mobile-alt"></i>
+                                        </div>
+                                        <div class="info pl-3">
+                                            <h5 class="mb-2">Our Phone</h5>
+                                            <p class="mb-0"><cds-icon shape="phone-handset"></cds-icon> <a href="tel:+13237451389">+1 323 745 1389</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clr-col-md-6 clr-col-lg-12 clr-col-xl-6">
+                                    <div class="contact-info-card d-flex mb-5">
+                                        <div class="icon">
+                                            <i class="fas fa-envelope-open-text"></i>
+                                        </div>
+                                        <div class="info pl-3">
+                                            <h5 class="mb-2">Our Email</h5>
+                                            <p class="mb-0"><cds-icon shape="envelope"></cds-icon> <a href="mailto:support@traininngsonline.com">support@traininngsonline.com</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clr-col-lg-12">
+                                    <div class="contact-info-card d-flex mb-5">
+                                        <div class="icon">
+                                            <i class="fas fa-map-marked-alt"></i>
+                                        </div>
+                                        <div class="info pl-3">
+                                            <h5 class="mb-2">Our Location</h5>
+                                            <p class="mb-0"><cds-icon shape="map-marker"></cds-icon> <a href="">US: 9854 National Blvd, Los Angeles, CA 90034</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clr-col-lg-12">
+                                    <div class="contact-info-card d-flex mb-5">
+                                        <div class="icon">
+                                            <i class="fas fa-map-marked-alt"></i>
+                                        </div>
+                                        <div class="info pl-3">
+                                            <h5 class="mb-2">Our Location</h5>
+                                            <p class="mb-0"><cds-icon shape="map-marker"></cds-icon> <a href="">INDIA: B-Block, Tetra Grand Building, Yelahanka,Bangalore - 560064</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="clr-col-lg-6">
+                        <div class="contact-form">
+                            <div class="contact-info-header mb-5">
+                                <h3>Send A Message</h3>
+                                <!-- <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem repudiandae officia possimus</p> -->
+                            </div>
+                            <form clrForm class="clr-row" [formGroup]="formGroup">
+                                <div class="clr-col-lg-6 clr-col-xl-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Enter Name" id="name" formControlName="name">
+                                    </div>
+                                </div>
+                                <div class="clr-col-lg-6 clr-col-xl-6">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Enter Email" id="email" formControlName="email">
+                                    </div>
+                                </div>
+                                <div class="clr-col-lg-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Enter Mobile Number" id="mobileNumber" formControlName="mobileNumber">
+                                    </div>
+                                </div>
+                                <div class="clr-col-lg-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control" rows="5" id="comment" placeholder="Enter Message" formControlName="message"></textarea>
+                                    </div>
+                                </div>
+                                <div class="clr-col-lg-12">
+                                    <button class="btn form-btn" (click)="sendMessage()">Send Message</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+</section>

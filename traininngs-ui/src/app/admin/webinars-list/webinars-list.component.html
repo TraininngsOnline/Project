@@ -1,0 +1,27 @@
+<div class="webinar-list-container">
+  <div class="admin-home-title">Webinars</div>
+  <clr-datagrid>
+    <clr-dg-column>Title</clr-dg-column>
+    <clr-dg-column>Mentor</clr-dg-column>
+    <clr-dg-column>Type</clr-dg-column>
+    <clr-dg-column>Date</clr-dg-column>
+    <clr-dg-column>Duration</clr-dg-column>
+    <clr-dg-column>Action</clr-dg-column>
+    <clr-dg-row *clrDgItems="let webinar of webinars">
+      <clr-dg-cell>{{webinar.title}}</clr-dg-cell>
+      <clr-dg-cell>{{webinar.author}}</clr-dg-cell>
+      <clr-dg-cell>{{webinar.webinarType}}</clr-dg-cell>
+      <clr-dg-cell>{{webinar.date | date: 'MMM dd YYYY'}}</clr-dg-cell>
+      <clr-dg-cell>{{webinar.duration}}</clr-dg-cell>
+      <clr-dg-cell>
+        <cds-icon class="pointer" shape="note" (click)="edit(webinar.id)"></cds-icon>
+        <cds-icon class="pointer" shape="trash" (click)="deleteWebinar(webinar.id)"></cds-icon>
+      </clr-dg-cell>
+    </clr-dg-row>
+    <clr-dg-footer>
+      <clr-dg-pagination #pagination [clrDgPageSize]="10">
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{pagination.totalItems}} webinars
+      </clr-dg-pagination>
+    </clr-dg-footer>
+  </clr-datagrid>
+</div>

@@ -1,0 +1,31 @@
+<nav class="user-navbar">
+    <div class="logo-section">
+        <a routerLink="/users/">
+            <img src="assets/img/trainingsonline.svg" alt="Traininngsonline Logo" width="150" class="main-logo">
+        </a>
+    </div>
+    <div class="navbar-btn" (click)="menuToggle()">
+        <cds-icon shape="bars" size="lg"></cds-icon>
+    </div>
+    <div class="navbar-list " [ngClass]="{'d-flex': btnStatus}">
+        <div class="navbar-close-btn" (click)="menuToggle()">
+            <cds-icon shape="times" size="lg"></cds-icon>
+        </div>
+        <ul>
+            <li><a routerLink="/users/">Home</a></li>
+            <li><a routerLink="/users/aboutus" (click)="menuToggle()">About Us</a></li>
+            <li><a (click)="goToWebinarsList('upcoming')">Live Webinars</a></li>
+            <li><a (click)="goToWebinarsList('ondemand')">Recorded Webinars</a></li>
+            <li><a routerLink="/users/contactus" (click)="menuToggle()">Contact Us</a></li>
+            <li *ngIf="!userConfig.data.isLoggedIn"><a (click)="showLogin()">
+                    <cds-icon shape="user" solid size="md"></cds-icon> Login
+                </a></li>
+            <li *ngIf="userConfig.data.isLoggedIn"><a (click)="goToCart()">
+                    <cds-icon shape="shopping-cart" badge="info" solid size="md"></cds-icon> {{userConfig.data.cart}}
+                </a></li>
+            <li *ngIf="userConfig.data.isLoggedIn"><a (click)="logout()">
+                    <cds-icon shape="user" solid size="md"></cds-icon> Logout
+                </a></li>
+        </ul>
+    </div>
+</nav>

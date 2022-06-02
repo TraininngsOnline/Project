@@ -1,0 +1,4 @@
+<app-header [userConfig]="userConfig"></app-header>
+<app-login *ngIf="userConfig.showLoginPopup" [userConfig]="userConfig"></app-login>
+<router-outlet></router-outlet>
+<app-main-footer></app-main-footer>

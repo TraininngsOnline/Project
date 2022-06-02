@@ -1,0 +1,17 @@
+@import '../marketing-manager-variables.scss';
+
+.mm-nav-item {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    // background-color: $primary-bg;
+    color: white;
+    font-size: 16px;
+    box-shadow: 0 0 5px;
+    cursor: pointer;
+}
+
+.manager-nav-active {
+    background-color: white !important;
+    color: $mm-home-bg !important;
+}

@@ -1,0 +1,44 @@
+<section class="popup-screen">
+    <div class="card popup-card">
+        <cds-icon shape="window-close" size="lg" class="window-close-icon" (click)="close()"></cds-icon>
+        <div class="popup-header text-center">
+            <img src="assets/img/trainingsonline.svg" alt="" width="150px">
+        </div>
+        <div class="popup-form mt-5 text-center" *ngIf="login" [formGroup]="formGroup">
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Enter email" id="email" formControlName="username">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Enter password" id="pwd" formControlName="password">
+                </div>
+                <button class="btn form-btn btn-block btn-login btn-success" (click)="submit('login')">Login</button>
+                <div class="my-3">OR</div>
+                <p>Don't have an account? <a (click)="toggle()" class="shift-link">Register Here</a></p>
+        </div>
+        <div class="popup-form mt-5 text-center" *ngIf="!login">
+            <form [formGroup]="formGroup">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Enter Name" id="name" formControlName="name">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Enter Email" id="email" formControlName="username">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Enter password" id="pwd" formControlName="password">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Confirm Password" id="cpwd" formControlName="cpassword">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Enter Mobile Number" id="contact" formControlName="mobilenumber">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Enter Company Name" id="company" formControlName="company">
+                </div>
+                <button class="btn form-btn btn-block btn-primary" (click)="submit('signup')">Register</button>
+                <div class="my-3">OR</div>
+                <p>If Already Register <a (click)="toggle()" class="shift-link">Login Here</a></p>
+            </form>
+        </div>
+    </div>
+</section>

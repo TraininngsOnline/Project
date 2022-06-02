@@ -1,0 +1,40 @@
+<div class="mm-report-title">
+  <span class="mm-title">{{config.title}}</span>
+  <cds-icon shape="download" (click)="download()"></cds-icon>
+</div>
+<clr-datagrid>
+    <!-- [clrDgSortBy]="pokemonComparator" -->
+    <clr-dg-column>Date</clr-dg-column>
+    <clr-dg-column>Party ID</clr-dg-column>
+    <clr-dg-column>Email ID</clr-dg-column>
+    <clr-dg-column>Order ID</clr-dg-column>
+    <clr-dg-column>Order Status</clr-dg-column>
+    <clr-dg-column>Webinar Details</clr-dg-column>
+    <clr-dg-row *clrDgItems="let item of items">
+      <clr-dg-cell>{{item.date | date: 'MMM dd YYYY'}}</clr-dg-cell>
+      <clr-dg-cell>{{item.userId}}</clr-dg-cell>
+      <clr-dg-cell>{{item.customer}}</clr-dg-cell>
+      <clr-dg-cell>{{item.id}}</clr-dg-cell>
+      <clr-dg-cell>{{item.status}}</clr-dg-cell>
+      <clr-dg-cell>
+        <span *ngFor="let webinar of item.webinars; let i=index;">
+          <span class="webinar-title">webinar {{i+1}}</span>
+          <span>Product ID: </span> <span>{{webinar.webinarId}}</span><br>
+          <span>Product Type: </span> <span>{{webinar.webinarType}}</span><br>
+          <span>Speaker Name: </span> <span>{{webinar.speakerName}}</span><br>
+          <span>Product Title: </span> <span>{{webinar.title}}</span><br>
+          <span>Product Quantity: </span> <span>{{webinar.quantity}}</span><br>
+          <span>Price: </span> <span>{{webinar.price}}</span><br>
+          <span>Discount Price: </span> <span>{{webinar.discountPrice}}</span><br>
+          <span>Sub Total: </span> <span>{{webinar.subTotal}}</span><br>
+          <span>Initial Request: </span> <span>{{webinar.initialRequest}}</span><br>
+          <span>Initial Referer: </span> <span>{{webinar.initialReferer}}</span><br>
+      </span>
+    </clr-dg-cell>
+    </clr-dg-row>
+    <clr-dg-footer>
+      <clr-dg-pagination #pagination [clrDgPageSize]="10">
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{pagination.totalItems}} users
+      </clr-dg-pagination>
+    </clr-dg-footer>
+  </clr-datagrid>
