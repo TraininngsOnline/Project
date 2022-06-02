@@ -21,6 +21,7 @@ export class WebinarsListComponent implements OnInit {
   webinarCats: any = [];
   unfilteredWebinars: any = [];
   baseUrl: string = '';
+  convertPdtTime12Time: any;
 
   constructor(private readonly activatedRoute: ActivatedRoute,
     private readonly usersService: UsersService,
@@ -35,6 +36,8 @@ export class WebinarsListComponent implements OnInit {
     this.getCategories();
     this.initForm();
   }
+
+
 
   initForm() {
     this.baseUrl = environment.baseUrl;
@@ -52,11 +55,26 @@ export class WebinarsListComponent implements OnInit {
     })
   }
 
+  tConvert(time: any){
+      // Check correct time format and split into components
+  time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+
+  if (time.length > 1) { // If time format correct
+    time = time.slice (1);  // Remove full string match value
+    time[5] = +time[0] < 12 ? ' AM' : ' PM'; // Set AM/PM
+    time[0] = +time[0] % 12 || 12; // Adjust hours
+  }
+  return time.join (''); // return adjusted time or original string
+  }
+
   getUpcomingWebinars(type: string) {
     const params = `webinarType/${type}/all`;
     this.usersService.getWebinars(params).subscribe((response: any) => {
       console.log(response);
       this.webinars = response;
+      // response.forEach(function (arrayItem) {
+      //   this.convertPdtTime12Time = this.tConvert(arrayItem.pdtTime);
+      // });
       this.unfilteredWebinars = [...response];
       this.webinarPriceType = type === 'ondemand' ? 'recOneAttendeePrice': 'liveOneAttendeePrice';
       this.disWebinarPriceType = `dis${this.webinarPriceType}`;
