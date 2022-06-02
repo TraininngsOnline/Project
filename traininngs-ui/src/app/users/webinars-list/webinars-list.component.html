@@ -54,10 +54,10 @@
                                                  <cds-icon shape="user"></cds-icon> {{webinar.author}}
                                              </div>
                                              <div class="author">
-                                                 <cds-icon shape="calendar"></cds-icon> {{webinar.date}}
+                                                 <cds-icon shape="calendar"></cds-icon> {{webinar.date | date:'mediumDate'}}
                                              </div>
                                              <div class="author">
-                                                 <cds-icon shape="clock"></cds-icon> {{webinar.pdtTime}} {{getAMPM(webinar.pdtTime)}} PST | {{webinar.edtTime}} {{getAMPM(webinar.edtTime)}} EST
+                                                 <cds-icon shape="clock"></cds-icon> {{this.tConvert(webinar.pdtTime)}} PDT | {{this.tConvert(webinar.edtTime)}} EDT
                                              </div>
                                              <div class="author">
                                                  <cds-icon shape="alarm-clock"></cds-icon> {{webinar.duration}} Min
