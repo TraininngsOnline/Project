@@ -1,0 +1,21 @@
+<div class="mm-report-title">
+    <span class="mm-title">Users</span>
+  </div>
+  <clr-datagrid>
+      <!-- [clrDgSortBy]="pokemonComparator" -->
+      <clr-dg-column>Name</clr-dg-column>
+      <clr-dg-column>Email</clr-dg-column>
+      <clr-dg-column>Mobile Number</clr-dg-column>
+      <clr-dg-column>company</clr-dg-column>
+      <clr-dg-row *clrDgItems="let user of users">
+        <clr-dg-cell>{{user.name}}</clr-dg-cell>
+        <clr-dg-cell>{{user.username}}</clr-dg-cell>
+        <clr-dg-cell>{{user.mobilenumber}}</clr-dg-cell>
+        <clr-dg-cell>{{user.company}}</clr-dg-cell>
+      </clr-dg-row>
+      <clr-dg-footer>
+        <clr-dg-pagination #pagination [clrDgPageSize]="10">
+          {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{pagination.totalItems}} users
+        </clr-dg-pagination>
+      </clr-dg-footer>
+    </clr-datagrid>

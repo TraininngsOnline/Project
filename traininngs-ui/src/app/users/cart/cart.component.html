@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="clr-row">
+        <div class="clr-col-lg-8">
+            <div class="card cart-items-list">
+                
+                   <div class="clr-row cart-item" *ngFor="let webinar of cart; let i = index;">
+                       <div class="clr-col-xl-2 clr-col-lg-3 clr-col-md-3 cart-img">
+                            <img src="{{webinar.webinarImageUrl}}" alt="">
+                       </div>
+                       <div class="clr-col-xl-10 clr-col-lg-9 clr-col-md-9">
+                            <h5 class="webinar-title line-clamp-one">{{webinar.title}}</h5>
+                            <p class="subscribe-type">{{getWebinarType(webinar.paymentFor)}}</p>
+                            <div class="clr-row cart-actions">
+                                <div class="clr-col-lg-3 clr-col-md-3 item-price">
+                                    <!-- <cds-icon shape="dollar"  size="md"></cds-icon>  -->
+                                    Price: &nbsp;
+                                    <ng-container *ngIf="!isValid(webinar[webinar.discountPayment])">
+                                        $ {{webinar[webinar.paymentFor]}}
+                                    </ng-container>
+                                    <ng-container *ngIf="isValid(webinar[webinar.discountPayment])">
+                                            <del>${{webinar[webinar.paymentFor]}}</del> &nbsp; ${{webinar[webinar.discountPayment]}}
+                                    </ng-container>
+                                </div>
+                                <div class="clr-col-lg-5 clr-col-md-6">
+                                    <div class="cart-input">
+                                        <span class="input-number-decrement" (click)="changeQuantity(i, 'decreement')">–</span>
+                                            <input class="input-number" readonly="true" type="text" value="{{webinar.quantity || 1}}" min="0" max="10">
+                                        <span class="input-number-increment" (click)="changeQuantity(i, 'increement')">+</span>
+                                    </div>
+                                </div>
+                                <div class="clr-col-lg-4 clr-col-md-3">
+                                    <button class="btn btn-trash btn-outline-danger" (click)="deleteItem(webinar, i)"><cds-icon shape="trash" solid size="sm"></cds-icon> Remove</button>
+                                    
+                                </div>
+                            </div>
+                       </div>
+                   </div>
+                   
+                   
+            </div>
+        </div>
+        <div class="clr-col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <span>Order Summary</span>
+                </div>
+                <div class="card-block">
+                    <table class="table mt-0">
+                        <tbody>
+                            <tr>
+                                <td>Total Items</td>
+                                <td>{{cart.length}} Items</td>
+                            </tr>
+                            <tr>
+                                <td>Order subtotal</td>
+                                <td>$ {{totalPrice}}</td>
+                            </tr>
+                            <tr>
+                                <th>Total</th>
+                                <th>$ {{totalPrice}}</th>
+                            </tr>
+                            <tr >
+                                <td colspan="2">
+                                    <button [disabled]="!cart.length" class="btn btn-block btn-success btn-order" (click)="payment()">Place Order</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

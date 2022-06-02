@@ -1,0 +1,20 @@
+<div class="login-container">
+    <div class="left-panel">
+    </div>
+    <div class="right-panel">
+        <span class="login-title">Manager Login</span>
+        <div class="form-content">
+            <form clrForm clrLayout="vertical" [formGroup]="loginForm">
+                <clr-input-container>
+                    <label>Username:</label>
+                    <input clrInput placeholder="" name="username" formControlName="username" />
+                  </clr-input-container>
+                  <clr-input-container>
+                    <label>Password:</label>
+                    <input type="password" clrInput placeholder="" name="password" formControlName="password" />
+                  </clr-input-container>
+                  <button class="btn btn-primary float-right" (click)="login()">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

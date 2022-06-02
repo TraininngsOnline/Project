@@ -1,0 +1,32 @@
+<div class="mm-speakers-title">
+    <span class="mm-title">Users</span>
+</div>
+<clr-datagrid>
+        <!-- [clrDgSortBy]="pokemonComparator" -->
+    <clr-dg-column>Name</clr-dg-column>
+    <clr-dg-column>Email</clr-dg-column>
+    <clr-dg-column>Mobile Number</clr-dg-column>
+    <clr-dg-column>Designation</clr-dg-column>
+    <clr-dg-column>Experience</clr-dg-column>
+    <clr-dg-column>Status</clr-dg-column>
+    <clr-dg-column>Actions</clr-dg-column>
+    <clr-dg-row *clrDgItems="let speaker of speakers">
+        <clr-dg-cell>{{speaker.name}}</clr-dg-cell>
+        <clr-dg-cell>{{speaker.email}}</clr-dg-cell>
+        <clr-dg-cell>{{speaker.phoneNumber}}</clr-dg-cell>
+        <clr-dg-cell>{{speaker.designation}}</clr-dg-cell>
+        <clr-dg-cell>{{speaker.experience}}</clr-dg-cell>
+        <clr-dg-cell>{{speaker.verifiedStatus}}</clr-dg-cell>
+        <clr-dg-cell>
+            <ng-container *ngIf="speaker.verifiedStatus === 'not verified'">
+                <cds-icon class="speakers-manager" shape="check" (click)="action(speaker, 'verified')"></cds-icon>
+                <cds-icon class="speakers-manager" shape="times" (click)="action(speaker, 'rejected')"></cds-icon>
+            </ng-container>
+        </clr-dg-cell>
+    </clr-dg-row>
+    <clr-dg-footer>
+        <clr-dg-pagination #pagination [clrDgPageSize]="10">
+            {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{pagination.totalItems}} speakers
+        </clr-dg-pagination>
+    </clr-dg-footer>
+</clr-datagrid>

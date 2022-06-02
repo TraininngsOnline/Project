@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="clr-row">
+        <div class="clr-col-md-4 clr-offset-md-4 card">
+            <div class="card-header">
+                <h2 class="form-heading text-center">Speaker Opportunity</h2>
+            </div>
+            
+            <form [formGroup]="formGroup" >
+                
+                <div class="form-group">
+                    <input  type="text" class="form-control" placeholder="Name" id="name" formControlName="name">
+                </div>
+                <span class="error-text" *ngIf="isInvalid('name')">Name is Required</span>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email" id="email" formControlName="email">
+                </div>
+                <span class="error-text" *ngIf="isInvalid('email')">Email is Required</span>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Phone Number" id="phone" formControlName="phoneNumber">
+                </div>
+                <span class="error-text" *ngIf="isInvalid('phoneNumber')">Phone Number is Required</span>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Designation" id="designation"
+                        formControlName="designation">
+                </div>
+                <span class="error-text" *ngIf="isInvalid('designation')">Designation is Required</span>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Experience in Years" id="exp"
+                        formControlName="experience">
+                </div>
+                <span class="error-text" *ngIf="isInvalid('experience')">Experience is Required</span>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Brief Profile" id="profile" formControlName="profile">
+                </div>
+                <span class="error-text" *ngIf="isInvalid('profile')">Profile is Required</span>
+                <button class="btn form-btn btn-block btn-primary" (click)="submit()">Submit</button>
+            </form>
+        </div>
+      </div>
+</div>
+

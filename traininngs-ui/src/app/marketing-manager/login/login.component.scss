@@ -1,0 +1,35 @@
+@import '../marketing-manager-variables.scss';
+
+.login-container {
+    height: 100vh;
+    display: flex;
+    .left-panel {
+        width: 50%;
+        background: linear-gradient(180deg, rgba(0,0,0,0.8), rgba(0,0,0,0.5)), url(https://online-training-image.s3.amazonaws.com/hero-one.jpg);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+    .right-panel {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .login-title {
+            font-size: $login-title;
+        }
+        .form-content {
+            width: 60%;
+            .clr-form-control {
+                align-items: unset;
+            }
+            input {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.float-right {
+    float: right;
+}

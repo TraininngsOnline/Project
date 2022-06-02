@@ -1,0 +1,217 @@
+<div class="create-webinar-container">
+    <div class="admin-home-title">{{editId ? 'Edit': 'Create'}} Webinar</div>
+    <form clrForm clrLayout="vertical" [formGroup]="createWebinar">
+        <div class="clr-row admin-home-content">
+            <div class="clr-col-12">
+                <clr-input-container>
+                    <label>Webinar Title:</label>
+                    <input clrInput placeholder="" name="title" formControlName="title" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-4">
+                <clr-select-container>
+                    <label>Mentor Name:</label>
+                    <select clrSelect formControlName="author">
+                        <option *ngFor="let speaker of speakers" value="{{speaker.name}}">{{speaker.name}}</option>
+                    </select>
+                </clr-select-container>
+            </div>
+            <div class="clr-col-4">
+                <clr-select-container>
+                    <label>Webinar Type:</label>
+                    <select clrSelect formControlName="webinarType">
+                        <option *ngFor="let webinarType of webinarTypes" value="{{webinarType.title}}">{{webinarType.title}}</option>
+                    </select>
+                </clr-select-container>
+            </div>
+            <div class="clr-col-4">
+                <clr-select-container>
+                    <label>Category:</label>
+                    <select clrSelect formControlName="category">
+                        <option *ngFor="let category of categories" value="{{category.title}}">{{category.title}}</option>
+                    </select>
+                </clr-select-container>
+            </div>
+            <div class="clr-col-4">
+                <clr-date-container>
+                    <label>Date</label>
+                    <input type="date" clrDate formControlName="date" />
+                </clr-date-container>
+            </div>
+            <div class="clr-col-4 time-inputs">
+                <label for="pdtTime">PST Time:</label>
+                <input type="time" class="form-control" id="pdtTime" formControlName="pdtTime">
+            </div>
+            <div class="clr-col-4 time-inputs">
+                <label for="edtTime">EST Time:</label>
+                <input type="time" class="form-control" id="edtTime" formControlName="edtTime">
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>Duration:</label>
+                    <input clrInput placeholder="" name="duration" formControlName="duration" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>Webinar Link:</label>
+                    <input clrInput placeholder="" name="webinarLink" formControlName="webinarLink" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-12">
+                <h2>Actual prices</h2>
+            </div>
+            <div class="clr-col-12">
+                <span class="pricing-class">Live Version Pricing:</span>
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>One Attendee:</label>
+                    <input clrInput placeholder="" name="liveOneAttendeePrice" formControlName="liveOneAttendeePrice" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>Group Attendees:</label>
+                    <input clrInput placeholder="" name="livegroupAttendeesPrice"
+                        formControlName="livegroupAttendeesPrice" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-12">
+                <span class="pricing-class">Recorded Version Pricing:</span>
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>One Attendee:</label>
+                    <input clrInput placeholder="" name="recOneAttendeePrice" formControlName="recOneAttendeePrice" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>Group Attendees:</label>
+                    <input clrInput placeholder="" name="recgroupAttendeesPrice"
+                        formControlName="recgroupAttendeesPrice" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-12">
+                <span class="pricing-class">COMBO Offers (Live + Recorded) Pricing:</span>
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>One Attendee:</label>
+                    <input clrInput placeholder="" name="comboOneAttendeePrice"
+                        formControlName="comboOneAttendeePrice" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>Group Attendees:</label>
+                    <input clrInput placeholder="" name="combogroupAttendeesPrice"
+                        formControlName="combogroupAttendeesPrice" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-12">
+                <h2>Discount prices</h2>
+            </div>
+            <div class="clr-col-12">
+                <span class="pricing-class">Live Version Pricing:</span>
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>One Attendee:</label>
+                    <input clrInput placeholder="" name="disliveOneAttendeePrice" formControlName="disliveOneAttendeePrice" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>Group Attendees:</label>
+                    <input clrInput placeholder="" name="dislivegroupAttendeesPrice"
+                        formControlName="dislivegroupAttendeesPrice" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-12">
+                <span class="pricing-class">Recorded Version Pricing:</span>
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>One Attendee:</label>
+                    <input clrInput placeholder="" name="disrecOneAttendeePrice" formControlName="disrecOneAttendeePrice" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>Group Attendees:</label>
+                    <input clrInput placeholder="" name="disrecgroupAttendeesPrice"
+                        formControlName="disrecgroupAttendeesPrice" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-12">
+                <span class="pricing-class">COMBO Offers (Live + Recorded) Pricing:</span>
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>One Attendee:</label>
+                    <input clrInput placeholder="" name="discomboOneAttendeePrice"
+                        formControlName="discomboOneAttendeePrice" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>Group Attendees:</label>
+                    <input clrInput placeholder="" name="discombogroupAttendeesPrice"
+                        formControlName="discombogroupAttendeesPrice" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-12">
+                <clr-input-container>
+                    <label>Short Description:</label>
+                    <input clrInput placeholder="" name="description" formControlName="description" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-12">
+                <p class="editor-label">Why you should Attend:</p>
+                <angular-editor formControlName="whyShouldAttend" [config]="editorConfig"></angular-editor>
+            </div>
+            <!-- <div class="clr-col-12">
+                <clr-input-container>
+                    <label>Why you should Attend:</label>
+                    <input clrInput placeholder="" name="whyShouldAttend" formControlName="whyShouldAttend" />
+                </clr-input-container>
+            </div> -->
+            <div class="clr-col-12">
+                    <!-- <clr-input-container>
+                        <input clrInput placeholder="" name="areasCovered" formControlName="areasCovered" />
+                    </clr-input-container> -->
+                    <p class="editor-label">Areas Covered:</p>
+                    <angular-editor formControlName="areasCovered" [config]="editorConfig"></angular-editor>
+                </div>
+            <div class="clr-col-12">
+                <!-- <clr-input-container>
+                    <input clrInput placeholder="" name="benfit" formControlName="benfit" />
+                </clr-input-container> -->
+                <p class="editor-label">Who will Benfit:</p>
+                <angular-editor formControlName="benfit" [config]="editorConfig"></angular-editor>
+            </div>
+            <div class="clr-col-12">
+                    <!-- <clr-input-container>
+                        <input clrInput placeholder="" name="benfit" formControlName="benfit" />
+                    </clr-input-container> -->
+                    <p class="editor-label">Speaker Profile:</p>
+                    <angular-editor formControlName="speaker" [config]="editorConfig"></angular-editor>
+                </div>
+            <div class="clr-col-6 pad-top-15">
+                <label>Author Image:</label>
+                                <input type="file" class="form-control-file border"
+                                    (change)="fileUpload($event, 'authorImage')">
+            </div>
+            <div class="clr-col-6 pad-top-15">
+                <label>Webinar Image:</label>
+                                <input type="file" class="form-control-file border"
+                                    (change)="fileUpload($event, 'thumbnailImage')">
+            </div>
+            <div class="clr-col-12 text-right">
+                <button class="btn btn-primary" (click)="saveWebinar()">SUBMIT</button>
+            </div>
+        </div>
+    </form>
+</div>

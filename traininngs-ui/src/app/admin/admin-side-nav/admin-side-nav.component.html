@@ -1,0 +1,6 @@
+<!-- <span class="admin-nav-item" routerLink="/admin/home/create-webinar" routerLinkActive="admin-nav-active">Create Webinar</span>
+<span class="admin-nav-item" routerLink="/admin/home/webinars-list" routerLinkActive="admin-nav-active">Webinars List</span> -->
+
+<ng-container *ngFor="let navItem of navItems">
+    <span class="admin-nav-item" routerLink="{{navItem.routerLink}}" routerLinkActive="admin-nav-active">{{navItem.title}}</span>
+</ng-container>

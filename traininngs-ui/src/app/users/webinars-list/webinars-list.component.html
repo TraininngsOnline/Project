@@ -1,0 +1,97 @@
+<section class="section-padding">
+    <div class="container">
+        <div class="clr-row">
+            <div class="clr-col-12 filter-card-btn">
+                <button class="btn"><cds-icon shape="filter" size="sm"></cds-icon></button>
+            </div>
+            <div class="clr-col-lg-3 clr-col-md-12 webinar-filter">
+               <div class="card webinars-filter-card">
+                   <div class="card-header">
+                       <span>Webinars Filter</span>
+                   </div>
+                   <div class="card-block">
+                        <form clrForm clrLayout="vertical" [formGroup]="formGroup">
+                            <div class="clr-row">
+                            <div class="clr-col-12">
+                                    <clr-input-container>
+                                        <input clrInput placeholder="Search by Name" name="title" formControlName="title" class="input-full" />
+                                    </clr-input-container>
+                                    <clr-select-container>
+                                        <select clrSelect formControlName="category">
+                                            <option value="">Select</option>
+                                            <option *ngFor="let webinarCat of webinarCats" value="{{webinarCat.title}}">{{webinarCat.title}}</option>
+                                        </select>
+                                    </clr-select-container>
+                            </div>
+                            <div class="clr-col-12">
+                                <button class="btn btn-success btn-block filter-btn" (click)="filter()">Search</button>
+                            </div>
+                            </div>
+                            
+                        </form>
+                   </div>
+                
+               </div>
+            </div>
+            <div class="clr-col-lg-9 clr-col-md-12">
+                <div class="clr-row">
+
+                    <div class="clr-col-lg-12 clr-col-md-6" *ngFor="let webinar of webinars">
+                        <div class="card webinar-list_card">
+                            <div class="card-block">
+                                <div class="clr-row">
+                                     <div class="clr-col-xl-4 clr-col-lg-5 webinar-left">
+                                         <img src="{{webinar.webinarImageUrl}}" alt="" class="webinar-img">
+                                     </div>
+                                     <div class="clr-col-xl-8 clr-col-lg-7">
+                                         <!-- <h2 class="webinar-title" title="{{webinar.title}}">{{webinar.title}}</h2> -->
+                                         <a href="{{baseUrl}}users/webinar-detail?title={{webinar.title}}&id={{webinar.id}}">
+                                            <h2 class="webinar-title">{{webinar.title}}</h2>
+                                        </a>
+                                         <p class="webinar-desc">{{webinar.description}}</p>
+                                         <div class="webinar-info">
+                                             <div class="author">
+                                                 <cds-icon shape="user"></cds-icon> {{webinar.author}}
+                                             </div>
+                                             <div class="author">
+                                                 <cds-icon shape="calendar"></cds-icon> {{webinar.date}}
+                                             </div>
+                                             <div class="author">
+                                                 <cds-icon shape="clock"></cds-icon> {{webinar.pdtTime}} {{getAMPM(webinar.pdtTime)}} PST | {{webinar.edtTime}} {{getAMPM(webinar.edtTime)}} EST
+                                             </div>
+                                             <div class="author">
+                                                 <cds-icon shape="alarm-clock"></cds-icon> {{webinar.duration}} Min
+                                             </div>
+                                         </div>
+                                         <div class="webinar-info-last">
+                                             <div class="price">
+                                                 <!-- $ {{webinar[webinarPriceType]}} -->
+                                                 <ng-container *ngIf="!isValid(webinar[disWebinarPriceType])">
+                                                    ${{webinar[webinarPriceType]}}
+                                                </ng-container>
+                                                <ng-container *ngIf="isValid(webinar[disWebinarPriceType])">
+                                                        <del>${{webinar[webinarPriceType]}}</del> ${{webinar[disWebinarPriceType]}}
+                                                </ng-container>
+                                             </div>
+                                             <div class="view-more">
+                                                 <!-- <button class="btn btn-success" (click)="viewDetails(webinar)"><cds-icon shape="eye"></cds-icon> View More</button> -->
+                                                 <a class="btn btn-icon btn-success" href="{{baseUrl}}users/webinar-detail?title={{webinar.title}}&id={{webinar.id}}">
+                                                    <cds-icon shape="eye" size="sm"></cds-icon> View More
+                                                </a>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+
+                  
+                </div>
+               
+               
+            </div>
+            
+        </div>
+    </div>
+</section>

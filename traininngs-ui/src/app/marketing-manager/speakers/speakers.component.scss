@@ -1,0 +1,11 @@
+@import '../marketing-manager-variables.scss';
+
+.mm-title {
+    font-size: $mm-title-font;
+    margin: 5px 0;
+}
+
+.speakers-manager {
+    cursor: pointer;
+    margin-right: 10px;
+}

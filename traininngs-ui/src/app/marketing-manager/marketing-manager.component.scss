@@ -1,0 +1,7 @@
+@import './marketing-manager-variables.scss';
+
+.mm-main-div {
+    height: 100vh;
+    background-color: $primary-bg;
+    overflow: auto;
+}

@@ -1,0 +1,23 @@
+<div class="webinar-type-list-container">
+    <div class="admin-home-title">Webinar Types</div>
+    <clr-datagrid>
+      <clr-dg-column>Title</clr-dg-column>
+      <clr-dg-column>Description</clr-dg-column>
+      <clr-dg-column>Date</clr-dg-column>
+      <!-- <clr-dg-column>Action</clr-dg-column> -->
+      <clr-dg-row *clrDgItems="let webinarType of webinarTypes">
+        <clr-dg-cell>{{webinarType.title}}</clr-dg-cell>
+        <clr-dg-cell>{{webinarType.description}}</clr-dg-cell>
+        <clr-dg-cell>{{webinarType.date | date: 'MMM dd YYYY'}}</clr-dg-cell>
+        <!-- <clr-dg-cell>
+          <cds-icon class="pointer" shape="note" (click)="edit(webinarType.id)"></cds-icon>
+          <cds-icon class="pointer" shape="trash" (click)="delete(webinarType.id)"></cds-icon>
+        </clr-dg-cell> -->
+      </clr-dg-row>
+      <clr-dg-footer>
+        <clr-dg-pagination #pagination [clrDgPageSize]="10">
+          {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{pagination.totalItems}} Webinar Types
+        </clr-dg-pagination>
+      </clr-dg-footer>
+    </clr-datagrid>
+  </div>

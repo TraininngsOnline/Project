@@ -1,0 +1,21 @@
+<div class="admin-home-container">
+    <div class="admin-top-nav">
+        Admin App
+      <clr-dropdown>
+        <button clrDropdownTrigger class="btn btn-primary">
+        <cds-icon shape="user"></cds-icon>
+        </button>
+        <clr-dropdown-menu *clrIfOpen="open" clrPosition="bottom-right">
+          <div class="dropdown-item active" (click)="logout()">Logout</div>
+        </clr-dropdown-menu>
+      </clr-dropdown>
+    </div>
+    <div class="admin-content">
+        <div class="admin-side-nav">
+            <app-admin-side-nav></app-admin-side-nav>
+        </div>
+        <div class="admin-home-content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

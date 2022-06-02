@@ -1,0 +1,21 @@
+<div class="mm-home-container">
+    <div class="mm-top-nav">
+        Marketing Manager App
+      <clr-dropdown>
+        <button clrDropdownTrigger class="btn">
+        <cds-icon shape="user"></cds-icon>
+        </button>
+        <clr-dropdown-menu *clrIfOpen="open" clrPosition="bottom-right">
+          <div class="dropdown-item active" (click)="logout()">Logout</div>
+        </clr-dropdown-menu>
+      </clr-dropdown>
+    </div>
+    <div class="mm-content">
+        <div class="mm-side-nav">
+            <app-mm-side-nav></app-mm-side-nav>
+        </div>
+        <div class="mm-home-content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

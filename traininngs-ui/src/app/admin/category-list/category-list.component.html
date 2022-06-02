@@ -1,0 +1,23 @@
+<div class="Category-list-container">
+    <div class="admin-home-title">Categories</div>
+    <clr-datagrid>
+      <clr-dg-column>Title</clr-dg-column>
+      <clr-dg-column>Description</clr-dg-column>
+      <clr-dg-column>Date</clr-dg-column>
+      <clr-dg-column>Action</clr-dg-column>
+      <clr-dg-row *clrDgItems="let category of categories">
+        <clr-dg-cell>{{category.title}}</clr-dg-cell>
+        <clr-dg-cell>{{category.description}}</clr-dg-cell>
+        <clr-dg-cell>{{category.date | date: 'MMM dd YYYY'}}</clr-dg-cell>
+        <clr-dg-cell>
+          <!-- <cds-icon class="pointer" shape="note" (click)="edit(category.id)"></cds-icon> -->
+          <cds-icon class="pointer" shape="trash" (click)="delete(category.id)"></cds-icon>
+        </clr-dg-cell>
+      </clr-dg-row>
+      <clr-dg-footer>
+        <clr-dg-pagination #pagination [clrDgPageSize]="10">
+          {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{pagination.totalItems}} categorys
+        </clr-dg-pagination>
+      </clr-dg-footer>
+    </clr-datagrid>
+  </div>
