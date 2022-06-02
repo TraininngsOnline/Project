@@ -1,0 +1,141 @@
+service: traininngs-api
+frameworkVersion: '2'
+
+custom:
+  adminTableName: 'admin-table-${sls:stage}'
+  userTableName: 'user-table-${sls:stage}'
+  marketingManagerTableName: 'marketing-manager-table'
+  webinarsTableName: 'webinars-table-${sls:stage}'
+  ordersTableName: 'orders-table'
+  categoriesTableName: 'category-table'
+  webinarTypesTableName: 'webinar-types-table'
+  imageUploadBucket: 'online-training-image'
+  speakersTable: 'speakers-table'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: '20201221'
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+            - s3:*
+          Resource:
+            - Fn::GetAtt: [ adminTable, Arn ]
+            - Fn::GetAtt: [ userTable, Arn ]
+            - Fn::GetAtt: [ marketingManagerTable, Arn ]
+            - Fn::GetAtt: [ ordersTable, Arn ]
+            - Fn::GetAtt: [ webinarsTable, Arn ]
+            - Fn::GetAtt: [ categoriesTable, Arn ]
+            - Fn::GetAtt: [ webinarTypesTable, Arn ]
+            - Fn::GetAtt: [ speakersTable, Arn ]
+
+functions:
+  api:
+    handler: handler.handler
+    events:
+      - httpApi: '*'
+
+resources:
+  Resources:
+    ImageUploadBucket:
+      Type: AWS::S3::Bucket
+      Properties: 
+        BucketName: ${self:custom.imageUploadBucket}
+        AccessControl: PublicRead
+    adminTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: username
+            AttributeType: S
+        KeySchema:
+          - AttributeName: username
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:custom.adminTableName} 
+    marketingManagerTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: username
+            AttributeType: S
+        KeySchema:
+          - AttributeName: username
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:custom.marketingManagerTableName}          
+    userTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: username
+            AttributeType: S
+        KeySchema:
+          - AttributeName: username
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:custom.userTableName}   
+    webinarsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:custom.webinarsTableName} 
+    categoriesTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:custom.categoriesTableName}    
+    webinarTypesTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:custom.webinarTypesTableName}                      
+    ordersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:custom.ordersTableName}  
+    speakersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:custom.speakersTable}         
