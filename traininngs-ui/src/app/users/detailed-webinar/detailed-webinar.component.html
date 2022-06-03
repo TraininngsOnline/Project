@@ -19,11 +19,11 @@
                                  {{webinar.author}}
                             </div>
                             <div class="clr-col-lg-4">
-                                <cds-icon shape="calendar" size="md"></cds-icon> {{webinar.date}}
+                                <cds-icon shape="calendar" size="md"></cds-icon> {{webinar.date | date:'mediumDate'}}
                             </div>
-                            <div class="clr-col-lg-4">
-                                <cds-icon shape="clock" size="md"></cds-icon> {{webinar.pdtTime}} {{getAMPM(webinar.pdtTime)}} PST |
-                                {{webinar.edtTime}} {{getAMPM(webinar.edtTime)}} EST
+                            <div class="clr-col-lg-4" *ngIf="webinar.pdtTime">
+                                <cds-icon shape="clock" size="md"></cds-icon>
+                                {{this.tConvert(webinar.pdtTime)}} PDT | {{this.tConvert(webinar.edtTime)}} EDT
                             </div>
                             <!-- <div class="clr-col-lg-4">
                                 <cds-icon shape="alarm-clock" size="md"></cds-icon> {{webinar.duration}} MINS
