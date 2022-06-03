@@ -72,15 +72,23 @@ export class WebinarsListComponent implements OnInit {
     this.usersService.getWebinars(params).subscribe((response: any) => {
       console.log(response);
       this.webinars = response;
-      // response.forEach(function (arrayItem) {
-      //   this.convertPdtTime12Time = this.tConvert(arrayItem.pdtTime);
-      // });
       this.unfilteredWebinars = [...response];
       this.webinarPriceType = type === 'ondemand' ? 'recOneAttendeePrice': 'liveOneAttendeePrice';
       this.disWebinarPriceType = `dis${this.webinarPriceType}`;
     }, error => {
       console.log(error);
     })
+  }
+
+  get sortByDate() {
+    return this.webinars.sort((a: any, b: any) => {
+      return <any>new Date(a.date) - <any>new Date(b.date);
+    });
+  }
+  get sortByDatesend() {
+    return this.webinars.sort((a: any, b: any) => {
+      return <any>new Date(a.date) - <any>new Date(b.date);
+    });
   }
 
   viewDetails(webinar: any) {
