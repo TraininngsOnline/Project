@@ -62,7 +62,6 @@ export class PaymentComponent implements OnInit, OnDestroy {
 
   getCartDetails() {
     this.usersService.getCart().subscribe(response => {
-      console.log(response);
       this.getTotalAmount(response);
     }, error => {
       console.log(error);
@@ -127,7 +126,6 @@ export class PaymentComponent implements OnInit, OnDestroy {
             paymentStatus: this.paymentStatus
           };
           this.usersService.orderUpdate(requestPayload).subscribe(response => {
-            console.log(response);
             this.usersService.addedToCart.next(0);
             this.toaster.success(response.message);
             this.router.navigate(['/users']);

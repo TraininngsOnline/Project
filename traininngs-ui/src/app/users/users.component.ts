@@ -23,7 +23,6 @@ export class UsersComponent implements OnInit {
       localStorage.clear();
     }
     this.usersService.isLoggedIn.subscribe(value => {
-      console.log(value);
       this.userConfig.data.isLoggedIn  = value;
     });
     this.usersService.showLogin.subscribe(value => {
@@ -33,7 +32,6 @@ export class UsersComponent implements OnInit {
 
   getUserDetails() {
     this.usersService.getTokenDetails().subscribe(response => {
-      console.log(response);
       this.userConfig.data = response;
       this.usersService.isLoggedIn.next(true);
     }, error => {

@@ -27,8 +27,10 @@ export class UpcomingWebinarsComponent implements OnInit {
   getUpcomingWebinars() {
     const params = 'webinarType/upcoming/4';
     this.usersService.getWebinars(params).subscribe(response => {
-      console.log(response);
       this.webinars = response;
+      // this.webinars.forEach(function (arrayItem: any, index: Number) {
+      //     arrayItem["index"] = index;
+      // });
     }, error => {
       console.log(error);
     })
@@ -43,6 +45,7 @@ export class UpcomingWebinarsComponent implements OnInit {
       return <any>new Date(a.date) - <any>new Date(b.date);
     });
   }
+
 
   viewDetails(webinar: any) {
     this.router.navigate(['/users/webinar-detail'], {queryParams: {title: webinar.title, id: webinar.id}})

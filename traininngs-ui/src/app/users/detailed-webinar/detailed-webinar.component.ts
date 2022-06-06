@@ -24,7 +24,6 @@ export class DetailedWebinarComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    // console.log(this.activeRoute.snapshot.queryParams);
     this.initForm();
     this.id = this.activeRoute.snapshot.queryParams!.id;
     this.getWebinarDetails();
@@ -51,7 +50,6 @@ export class DetailedWebinarComponent implements OnInit {
     if (this.id) {
       const params = `id/${this.id}/false`;
       this.usersService.getWebinars(params).subscribe(response => {
-        console.log(response);
         this.webinar = response[0];
         const paymentFor = this.webinar.webinarType === 'upcoming' ? 'liveOneAttendeePrice' : 'recOneAttendeePrice';
         this.webinarForm.get('paymentFor')!.patchValue(paymentFor);

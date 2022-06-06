@@ -32,12 +32,10 @@ export class SpeakerOpportunityComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.formGroup.value);
     if (this.formGroup.valid) {
       this.usersService.addSpeaker(this.formGroup.value).subscribe((response) => {
         this.toaster.success('');
         this.router.navigate(['/users'])
-        console.log(response);
       }, (error) => {
         this.toaster.error('');
         console.log(error);
