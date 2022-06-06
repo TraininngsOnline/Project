@@ -22,7 +22,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.usersService.addedToCart.subscribe((value: any) => {
-      console.log(value);
       if (!value) {
         this.userConfig.data!.cart = 0;
       } else if (value) {

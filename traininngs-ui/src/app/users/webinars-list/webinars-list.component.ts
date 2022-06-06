@@ -29,7 +29,6 @@ export class WebinarsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.queryParamMap.subscribe(value => {
-      console.log(value.get('type'));
       const webinarType = value.get('type') || '';
       this.getUpcomingWebinars(webinarType);
     });
@@ -70,7 +69,6 @@ export class WebinarsListComponent implements OnInit {
   getUpcomingWebinars(type: string) {
     const params = `webinarType/${type}/all`;
     this.usersService.getWebinars(params).subscribe((response: any) => {
-      console.log(response);
       this.webinars = response;
       this.unfilteredWebinars = [...response];
       this.webinarPriceType = type === 'ondemand' ? 'recOneAttendeePrice': 'liveOneAttendeePrice';
@@ -117,7 +115,6 @@ export class WebinarsListComponent implements OnInit {
         this.webinars.push(webinar);
       }
     });
-    console.log(this.webinars);
   }
 
   getAMPM(time: any) {

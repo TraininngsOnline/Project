@@ -27,7 +27,6 @@ export class CartComponent implements OnInit {
 
   getCartDetails() {
     this.usersService.getCart().subscribe(response => {
-      console.log(response);
       this.webinars = response.Items;
       this.paymentOptions = response.paymentOptions;
       // this.cart = response.cart;
@@ -63,7 +62,6 @@ export class CartComponent implements OnInit {
 
   updateCart(webinarIndex: number) {
     this.usersService.updateQuantity(this.cart[webinarIndex]).subscribe((response: any) => {
-      console.log(response);
       this.getTotalAmount();
     }, (error: any) => {
       console.log(error);
@@ -71,7 +69,6 @@ export class CartComponent implements OnInit {
   }
 
   constructCart(cart: any) {
-    console.log(cart);
     this.usersService.addedToCart.next(0);
     this.usersService.addedToCart.next(cart.length);
     this.cart = [];
@@ -105,7 +102,6 @@ export class CartComponent implements OnInit {
       })
     }
     this.usersService.paySession(payload).subscribe((response: any) => {
-      console.log(response);
       window.location = response.url;
     }, (error: any) => {
       console.log(error);
@@ -119,7 +115,6 @@ export class CartComponent implements OnInit {
   deleteItem(webinar: any, index: number) {
     const { id, quantity, paymentFor } = webinar;
     this.usersService.deleteItem({ id, quantity, paymentFor }).subscribe(response => {
-      console.log(response);
       this.getCartDetails();
     }, error => {
       console.log(error);
