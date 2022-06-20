@@ -23,6 +23,7 @@ import { SupportPageComponent } from './support-page/support-page.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
 import { RefundPolicyComponent } from './refund-policy/refund-policy.component';
+import {NgxPaginationModule} from 'ngx-pagination'; 
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { RefundPolicyComponent } from './refund-policy/refund-policy.component';
     UsersRoutingModule,
     ReactiveFormsModule,
     ClarityModule,
+    NgxPaginationModule,
     NgxStripeModule.forRoot("pk_live_51JncvYSIU6OIPH9XryMKNsNjmTQD0nY6jXQqKs2FKjAPm1K9oAocnXk1cnJM9Qke0EHNahYb6beXBASQQh3EN7h500SrJHytm3")
   ]
 })

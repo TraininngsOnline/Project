@@ -35,7 +35,15 @@
             </div>
             <div class="clr-col-lg-9 clr-col-md-12">
                 <div class="clr-row">
-                    <div class="clr-col-lg-12 clr-col-md-6" *ngFor="let webinar of sortByDate">
+                    <div class="clr-col-lg-12 clr-col-md-6">
+                        <div class="has-text-centered paginate-col">
+                            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="clr-row">
+                    <div class="clr-col-lg-12 clr-col-md-6" *ngFor="let webinar of sortByDate | paginate: { itemsPerPage: 10, currentPage: page }">
                         <div class="card webinar-list_card">
                             <div class="card-block">
                                 <div class="clr-row">
@@ -84,10 +92,14 @@
                             </div>
                         </div>
                     </div>
-
-                  
                 </div>
-               
+                <div class="clr-row">
+                    <div class="clr-col-lg-12 clr-col-md-6">
+                        <div class="has-text-centered paginate-col">
+                            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                        </div>
+                    </div>
+                </div>
                
             </div>
             
