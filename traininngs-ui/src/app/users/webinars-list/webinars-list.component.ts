@@ -22,6 +22,7 @@ export class WebinarsListComponent implements OnInit {
   unfilteredWebinars: any = [];
   baseUrl: string = '';
   convertPdtTime12Time: any;
+  page: number = 1;
 
   constructor(private readonly activatedRoute: ActivatedRoute,
     private readonly usersService: UsersService,
@@ -31,6 +32,7 @@ export class WebinarsListComponent implements OnInit {
     this.activatedRoute.queryParamMap.subscribe(value => {
       const webinarType = value.get('type') || '';
       this.getUpcomingWebinars(webinarType);
+      this.page = 1;
     });
     this.getCategories();
     this.initForm();
