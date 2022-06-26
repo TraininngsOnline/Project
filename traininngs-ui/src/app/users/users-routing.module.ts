@@ -14,12 +14,13 @@ import { TermsConditionsComponent } from './terms-conditions/terms-conditions.co
 import { RefundPolicyComponent } from './refund-policy/refund-policy.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { UsersGuard } from './users.guard';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 
 const routes: Routes = [
   { path: '', component: UsersComponent, children: [
     { path: '', component: HomeComponent },
     { path: 'webinars-list', component: WebinarsListComponent },
-    { path: 'webinar-detail', component: DetailedWebinarComponent },
+    { path: 'webinar-detail/:id', component: DetailedWebinarComponent },
     { path: 'aboutus', component: AboutUsComponent },
     { path: 'contactus', component: ContactUsComponent },
     { path: 'cart', component: CartComponent, canActivate: [ UsersGuard ] },
@@ -28,7 +29,8 @@ const routes: Routes = [
     { path: 'support', component:SupportPageComponent },
     { path:'terms-conditions', component:TermsConditionsComponent },
     { path:'refund-policy', component:RefundPolicyComponent },
-    {path:'privacy-policy', component:PrivacyPolicyComponent}
+    {path:'privacy-policy', component:PrivacyPolicyComponent},
+    {path:'my-orders', component:MyOrdersComponent, canActivate: [ UsersGuard ]}
   ] }
 ];
 

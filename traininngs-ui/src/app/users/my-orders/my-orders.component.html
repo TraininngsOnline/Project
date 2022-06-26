@@ -1,0 +1,23 @@
+<div class="mm-report-title">
+    <span class="mm-title">My Orders</span>
+    <cds-icon shape="download" (click)="download()"></cds-icon>
+  </div>
+  <clr-datagrid>
+      <!-- [clrDgSortBy]="pokemonComparator" -->
+      <clr-dg-column>Date</clr-dg-column>
+      <clr-dg-column>Order No</clr-dg-column>
+      <clr-dg-column>Amount</clr-dg-column>
+      <clr-dg-column>Status</clr-dg-column>
+      <clr-dg-row *clrDgItems="let item of orders">
+        <clr-dg-cell>{{item.date | date: 'MMM dd YYYY'}}</clr-dg-cell>
+        <clr-dg-cell>{{item.id}}</clr-dg-cell>
+        <clr-dg-cell>{{item.amount}}</clr-dg-cell>
+        <clr-dg-cell>{{item.status}}</clr-dg-cell>
+
+      </clr-dg-row>
+      <clr-dg-footer>
+        <clr-dg-pagination #pagination [clrDgPageSize]="10">
+          {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{pagination.totalItems}} orders
+        </clr-dg-pagination>
+      </clr-dg-footer>
+    </clr-datagrid>

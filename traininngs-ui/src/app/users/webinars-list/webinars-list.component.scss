@@ -15,7 +15,7 @@
         margin: 0px;
         color: blueviolet;
         font-weight: 600;
-        line-height: 1.3;
+        line-height: 24px;
         display: -webkit-box;
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;  
@@ -69,6 +69,8 @@
    }
 }
 .webinars-filter-card{
+    position: relative;
+    left: 20px;
     .card-header{
         background: blueviolet;
         color: #fff;

@@ -14,14 +14,16 @@ import { WebinarTypeListComponent } from './webinar-type-list/webinar-type-list.
 const routes: Routes = [
   { path: '', component: AdminComponent, children: [
     { path: '', component: LoginComponent },
-    { path: 'home', component: AdminHomeComponent, canActivate: [AdminGuard], children: [
+    { path: 'home', component: AdminHomeComponent, canActivate: [AdminGuard],
+     children: [
       { path: 'create-webinar', component: CreateWebinarComponent },
       { path: 'webinars-list', component: WebinarsListComponent},
       { path: 'category', component: CategoryComponent },
       { path: 'category-list', component: CategoryListComponent },
       { path: 'webinar-type', component: WebinarTypeComponent },
       { path: 'webinar-type-list', component: WebinarTypeListComponent }
-    ] }
+    ] 
+  }
   ] }
 ];
 

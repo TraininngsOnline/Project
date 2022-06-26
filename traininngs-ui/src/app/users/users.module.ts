@@ -24,6 +24,7 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
 import { RefundPolicyComponent } from './refund-policy/refund-policy.component';
 import {NgxPaginationModule} from 'ngx-pagination'; 
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     OndemandWebinarsComponent,
     CartComponent,
     PaymentComponent,
+    MyOrdersComponent,
     MainFooterComponent,
     SpeakerOpportunityComponent,
     SupportPageComponent,

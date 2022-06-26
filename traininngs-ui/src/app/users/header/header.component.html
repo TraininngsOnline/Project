@@ -22,10 +22,36 @@
                 </a></li>
             <li *ngIf="userConfig.data.isLoggedIn"><a (click)="goToCart()">
                     <cds-icon shape="shopping-cart" badge="info" solid size="md"></cds-icon> {{userConfig.data.cart}}
-                </a></li>
-            <li *ngIf="userConfig.data.isLoggedIn"><a (click)="logout()">
+                </a>
+            </li>
+            <li class="myorders" *ngIf="mobile && userConfig.data.isLoggedIn"><a (click)="goto()">
+                    <cds-icon shape="image-gallery" solid size="md"></cds-icon> MyOrders
+                </a>
+            </li>
+            <li class="logout" *ngIf="mobile && userConfig.data.isLoggedIn"><a (click)="logout()">
                     <cds-icon shape="user" solid size="md"></cds-icon> Logout
-                </a></li>
+                </a>
+            </li>
+            <li class="dd-menu" *ngIf="!mobile && userConfig.data.isLoggedIn">
+                <clr-dropdown [clrCloseMenuOnItemClick]="open">
+                    <a clrDropdownTrigger class="btn btn-primary circle">
+                        <span>{{userName}}</span>
+                    </a>
+                    <clr-dropdown-menu *clrIfOpen="open" clrPosition="bottom-right">
+                        <div class="dropdown-item">
+                            <a class="dd-menu" (click)="goto()">
+                                <cds-icon shape="image-gallery" solid size="md"></cds-icon>
+                                MyOrders
+                            </a>
+                        </div>
+                        <div class="dropdown-item" (click)="logout()">
+                            <a class="dd-menu" (click)="logout()">
+                                <cds-icon shape="user" solid size="md"></cds-icon> Logout
+                            </a>
+                        </div>
+                    </clr-dropdown-menu>
+                </clr-dropdown>
+            </li>
         </ul>
     </div>
 </nav>

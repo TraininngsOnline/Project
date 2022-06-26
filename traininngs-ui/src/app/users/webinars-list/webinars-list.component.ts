@@ -127,4 +127,9 @@ export class WebinarsListComponent implements OnInit {
     return Number(value) > 0 && Number(value) !== NaN;
   }
 
+  gotoWebDetails(title: string, id: string) {
+    const url = title.replace(/ /g,"_")
+
+    this.router.navigateByUrl(`/users/webinar-detail/${url}_${id}`)
+  }
 }

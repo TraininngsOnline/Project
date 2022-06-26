@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { UsersService } from '../services/users.service';
 import { Router } from '@angular/router';
-import { ClarityIcons, userIcon, shoppingCartIcon, barsIcon, timesIcon } from '@cds/core/icon';
+import { ClarityIcons, userIcon, shoppingCartIcon, barsIcon, timesIcon, videoGalleryIcon, imageGalleryIcon } from '@cds/core/icon';
 
-ClarityIcons.addIcons(userIcon,shoppingCartIcon,barsIcon,timesIcon);
+ClarityIcons.addIcons(userIcon,shoppingCartIcon,barsIcon,timesIcon, videoGalleryIcon, imageGalleryIcon);
 
 
 @Component({
@@ -16,7 +16,14 @@ export class HeaderComponent implements OnInit {
   @Input() userConfig: any;
 
   btnStatus = false;
-
+  open= false;
+  userName='';
+  mobile: boolean = false;
+  
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.mobile = event.target.innerWidth < 992 ?  true : false;
+  }
   constructor(private readonly usersService: UsersService,
     private readonly router: Router) { }
 
@@ -25,10 +32,11 @@ export class HeaderComponent implements OnInit {
       if (!value) {
         this.userConfig.data!.cart = 0;
       } else if (value) {
-        console.log(this.userConfig.data.cart);
         this.userConfig.data!.cart += value;
       }
     });
+
+    this.usersService.getTokenDetails().subscribe(res => this.userName = Array.from(res.username)[0] as string)
   }
 
   showLogin(): void {
@@ -40,6 +48,11 @@ export class HeaderComponent implements OnInit {
   goToCart() {
     this.menuToggle();
     this.router.navigate(['/users/cart']);
+  }
+
+  goto() {
+    this.open = !this.open;
+    this.router.navigate(['/users/my-orders']);
   }
 
   goToWebinarsList(type: string) {

@@ -49,6 +49,11 @@ export class UsersService {
     return this.apiService.get(url);
   }
 
+  getUserOrderDetails(): Observable<any> {
+    const url = `${urls.getUserOrders}`;
+    return this.apiService.get(url);
+  }
+
   updateQuantity(payload: any): Observable<any> {
     const url = `${urls.updateQuantity}`;
     return this.apiService.put(url, payload);

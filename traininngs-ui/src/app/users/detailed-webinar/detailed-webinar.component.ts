@@ -12,7 +12,6 @@ ClarityIcons.addIcons(userIcon,clockIcon,alarmClockIcon,assignUserIcon,dollarIco
   styleUrls: ['./detailed-webinar.component.scss']
 })
 export class DetailedWebinarComponent implements OnInit {
-
   webinar: any = {};
   id: string = '';
   showError: boolean = false;
@@ -25,7 +24,8 @@ export class DetailedWebinarComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    this.id = this.activeRoute.snapshot.queryParams!.id;
+    this.id = this.activeRoute.snapshot.params.id.split("_").pop();
+    
     this.getWebinarDetails();
   }
 
@@ -53,6 +53,11 @@ export class DetailedWebinarComponent implements OnInit {
         this.webinar = response[0];
         const paymentFor = this.webinar.webinarType === 'upcoming' ? 'liveOneAttendeePrice' : 'recOneAttendeePrice';
         this.webinarForm.get('paymentFor')!.patchValue(paymentFor);
+        // const lastIndex = this.activeRoute.snapshot.params.id.lastIndexOf("_");
+        // const url = this.activeRoute.snapshot.params.id.substring(0, lastIndex)
+
+        // this.router.navigate([`/users/webinar-detail/${url}_${this.webinar.webinarLink}`])
+
       }, error => {
         console.log(error);
       })

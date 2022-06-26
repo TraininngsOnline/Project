@@ -13,6 +13,7 @@ export const urls = {
     payment: 'payment',
     gettokendetails: 'gettokendetails',
     getOrders: 'orders',
+    getUserOrders: 'user-orders',
     saveCategory: 'category',
     deleteCategory: 'category/',
     getCategories: 'category',
