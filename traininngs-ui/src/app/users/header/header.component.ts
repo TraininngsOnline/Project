@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
 
   btnStatus = false;
   open= false;
+  
   userName='';
   mobile: boolean = false;
   
