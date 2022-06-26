@@ -132,4 +132,8 @@ export class WebinarsListComponent implements OnInit {
 
     this.router.navigateByUrl(`/users/webinar-detail/${url}_${id}`)
   }
+
+  scroll(el: HTMLElement) {
+    el.scrollIntoView();
+}
 }
