@@ -25,6 +25,8 @@ import { TermsConditionsComponent } from './terms-conditions/terms-conditions.co
 import { RefundPolicyComponent } from './refund-policy/refund-policy.component';
 import {NgxPaginationModule} from 'ngx-pagination'; 
 import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { NgbModule }
+from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,7 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
     UsersRoutingModule,
     ReactiveFormsModule,
     ClarityModule,
+    NgbModule,
     NgxPaginationModule,
     NgxStripeModule.forRoot("pk_live_51JncvYSIU6OIPH9XryMKNsNjmTQD0nY6jXQqKs2FKjAPm1K9oAocnXk1cnJM9Qke0EHNahYb6beXBASQQh3EN7h500SrJHytm3")
   ]

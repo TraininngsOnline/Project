@@ -13,6 +13,9 @@ ClarityIcons.addIcons(userIcon,clockIcon,alarmClockIcon,assignUserIcon,dollarIco
 })
 export class DetailedWebinarComponent implements OnInit {
   webinar: any = {};
+  isGroupCollapsed = true;
+  isLiveCollapsed = true;
+  isRecordCollapsed = true;
   id: string = '';
   showError: boolean = false;
   webinarForm!: FormGroup;
@@ -91,6 +94,14 @@ export class DetailedWebinarComponent implements OnInit {
 
   getAMPM(time: any) {
     return (Number(String(time).substr(0,2)) >= 0 && Number(String(time).substr(0,2)) < 12) ? 'AM' : 'PM';
+  }
+
+  checkToggle(type: any) {
+     if(type === 'live') {
+      this.isRecordCollapsed = true;
+    } else {
+      this.isLiveCollapsed = true;
+    }
   }
 
 }

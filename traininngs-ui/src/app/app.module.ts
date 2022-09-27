@@ -7,7 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
-import {NgxPaginationModule} from 'ngx-pagination'; 
+import {NgxPaginationModule} from 'ngx-pagination';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; 
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     NgxPaginationModule,
+    NgbModule,
   ],
   providers: [
     {

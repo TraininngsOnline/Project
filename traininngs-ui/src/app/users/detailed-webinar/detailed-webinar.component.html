@@ -8,15 +8,15 @@
                     </div>
                     <div class="card-header">
                         <h2 class="webinar-title">{{webinar.title}}</h2>
-                      </div>
-                
+                    </div>
+
                     <div class="card-block">
                         <!-- <h2 class="webinar-title">{{webinar.title}}</h2> -->
                         <div class="clr-row webinar-infos mb-1">
                             <div class="clr-col-lg-4 image-author">
                                 <!-- <cds-icon shape="user" size="md"></cds-icon> -->
                                 <img [src]="webinar.authorImageUrl">
-                                 {{webinar.author}}
+                                {{webinar.author}}
                             </div>
                             <div class="clr-col-lg-4">
                                 <cds-icon shape="calendar" size="md"></cds-icon> {{webinar.date | date:'mediumDate'}}
@@ -31,7 +31,7 @@
                             <div class="clr-col-lg-8">
                                 <cds-icon shape="employee" size="md"></cds-icon> ID:{{webinar.id}} 
                             </div> -->
-                            
+
                         </div>
                         <div class="clr-row webinar-infos">
                             <!-- <div class="clr-col-lg-4">
@@ -48,11 +48,11 @@
                                 <cds-icon shape="alarm-clock" size="md"></cds-icon> {{webinar.duration}} MINS
                             </div>
                             <div class="clr-col-lg-8">
-                                <cds-icon shape="employee" size="md"></cds-icon> ID:{{webinar.webinarLink}} 
+                                <cds-icon shape="employee" size="md"></cds-icon> ID:{{webinar.webinarLink}}
                             </div>
-                            
+
                         </div>
-                        
+
                         <div class="clr-row">
                             <!-- <div class="clr-col-lg-4">
                                 <button class="btn btn-link"><cds-icon shape="event" size="md"></cds-icon> Add To Calander</button>
@@ -75,60 +75,70 @@
                         <div class="col-12 mb-1" [innerHtml]="webinar.benfit"></div>
                         <h3>Areas Covered in the Session</h3>
                         <!-- <p>{{webinar.areasCovered}}</p> -->
-                        <div class="col-12 mb-1" [innerHtml]="webinar.areasCovered"></div> 
+                        <div class="col-12 mb-1" [innerHtml]="webinar.areasCovered"></div>
                         <!-- <h3>Speaker Profile</h3>   
                         <div class="col-12 mb-1" [innerHtml]="webinar.speaker"></div>                         -->
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-block">
-                        <h3>Speaker Profile</h3>   
-                        <div class="col-12 webinar-spreaker-profile" [innerHtml]="webinar.speaker"></div>                        
+                        <h3>Speaker Profile</h3>
+                        <div class="col-12 webinar-spreaker-profile" [innerHtml]="webinar.speaker"></div>
                     </div>
                 </div>
             </div>
+
             <div class="clr-col-lg-3">
-               <div class="card webinar-subscription-card">
-                   <div class="card-header">
-                       <span>Webinar Price Details</span>
-                   </div>
-                   <div class="card-block" >
-                    <form clrForm clrLayout="vertical" [formGroup]="webinarForm">
-                        <div class="clr-row">
-                        <div class="clr-col-12" *ngIf="webinar.webinarType === 'upcoming'">
-                            <h5 class="webinar-sub-title mt-0"><cds-icon shape="headphones"></cds-icon> Live Webinar</h5>
-                            <clr-radio-wrapper>
-                                <input type="radio" clrRadio value="option1" formControlName="paymentFor" value="liveOneAttendeePrice" />
-                                <label>
-                                    <ng-container *ngIf="!isValid(webinar.disliveOneAttendeePrice)">
-                                        One Attendee - ${{webinar.liveOneAttendeePrice}}
-                                    </ng-container>
-                                    <ng-container *ngIf="isValid(webinar.disliveOneAttendeePrice)">
-                                            One Attendee - <del>${{webinar.liveOneAttendeePrice}}</del> ${{webinar.disliveOneAttendeePrice}}
-                                    </ng-container>
-                                </label>
-                            </clr-radio-wrapper>
-                            <clr-radio-wrapper>
-                                <input type="radio" clrRadio value="option2"  formControlName="paymentFor" value="livegroupAttendeesPrice" />
-                                <label>
-                                    <ng-container *ngIf="!isValid(webinar.dislivegroupAttendeesPrice)">
-                                            Group Attendee - ${{webinar.livegroupAttendeesPrice}}
-                                    </ng-container>
-                                    <ng-container *ngIf="isValid(webinar.dislivegroupAttendeesPrice)">
-                                            Group Attendee - <del>${{webinar.livegroupAttendeesPrice}}</del> ${{webinar.dislivegroupAttendeesPrice}}
-                                    </ng-container>
-                                </label>
-                            </clr-radio-wrapper>
-                        </div>
+                <div class="card webinar-subscription-card">
+                    <div class="card-header">
+                        <span>Webinar Price Details</span>
+                    </div>
+                    <div class="card-block">
+                        <form clrForm clrLayout="vertical" [formGroup]="webinarForm">
+                            <div class="clr-row">
+                                <div class="clr-col-12" *ngIf="webinar.webinarType === 'upcoming'">
+                                    <h5 class="webinar-sub-title mt-0">
+                                        <cds-icon shape="headphones"></cds-icon> Live Webinar
+                                    </h5>
+                                    <clr-radio-wrapper>
+                                        <input type="radio" clrRadio value="option1" formControlName="paymentFor"
+                                            value="liveOneAttendeePrice" />
+                                        <label>
+                                            <ng-container *ngIf="!isValid(webinar.disliveOneAttendeePrice)">
+                                                One Attendee - ${{webinar.liveOneAttendeePrice}}
+                                            </ng-container>
+                                            <ng-container *ngIf="isValid(webinar.disliveOneAttendeePrice)">
+                                                One Attendee - <del>${{webinar.liveOneAttendeePrice}}</del>
+                                                ${{webinar.disliveOneAttendeePrice}}
+                                            </ng-container>
+                                        </label>
+                                    </clr-radio-wrapper>
+                                    <clr-radio-wrapper>
+                                        <input type="radio" clrRadio value="option2" formControlName="paymentFor"
+                                            value="livegroupAttendeesPrice" />
+                                        <label>
+                                            <ng-container *ngIf="!isValid(webinar.dislivegroupAttendeesPrice)">
+                                                Group Attendee - ${{webinar.livegroupAttendeesPrice}}
+                                            </ng-container>
+                                            <ng-container *ngIf="isValid(webinar.dislivegroupAttendeesPrice)">
+                                                Group Attendee - <del>${{webinar.livegroupAttendeesPrice}}</del>
+                                                ${{webinar.dislivegroupAttendeesPrice}}
+                                            </ng-container>
+                                        </label>
+                                    </clr-radio-wrapper>
+                                </div>
 
 
 
 
-                        <div class="clr-col-12">
-                            <h5 class="webinar-sub-title"><cds-icon shape="microphone"></cds-icon> Recorded Webinar</h5>
-                            <clr-radio-wrapper>
-                                <input type="radio" clrRadio value="option3"  formControlName="paymentFor" value="recOneAttendeePrice" />
-                                <!-- <label>One Attendee - ${{webinar.recOneAttendeePrice}}
+                                <div class="clr-col-12">
+                                    <h5 class="webinar-sub-title">
+                                        <cds-icon shape="microphone"></cds-icon> Recorded Webinar
+                                    </h5>
+                                    <clr-radio-wrapper>
+                                        <input type="radio" clrRadio value="option3" formControlName="paymentFor"
+                                            value="recOneAttendeePrice" />
+                                        <!-- <label>One Attendee - ${{webinar.recOneAttendeePrice}}
                                     <a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-sm tooltip-top-right">
                                         <cds-icon shape="info-circle" size="md"></cds-icon>
                                         <span class="tooltip-content">Access recorded version only for one participant <br>unlimited viewing for 6 months ( Access information will
@@ -137,103 +147,176 @@
                                     </a>
                                 </label> -->
 
-                                <label>
-                                    <ng-container *ngIf="!isValid(webinar.disrecOneAttendeePrice)">
-                                            One Attendee - ${{webinar.recOneAttendeePrice}}
-                                    </ng-container>
-                                    <ng-container *ngIf="isValid(webinar.disrecOneAttendeePrice)">
-                                            One Attendee - <del>${{webinar.recOneAttendeePrice}}</del> ${{webinar.disrecOneAttendeePrice}}
-                                    </ng-container>
-                                    <a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-sm tooltip-top-right">
+                                        <label>
+                                            <ng-container *ngIf="!isValid(webinar.disrecOneAttendeePrice)">
+                                                One Attendee - ${{webinar.recOneAttendeePrice}}
+                                            </ng-container>
+                                            <ng-container *ngIf="isValid(webinar.disrecOneAttendeePrice)">
+                                                One Attendee - <del>${{webinar.recOneAttendeePrice}}</del>
+                                                ${{webinar.disrecOneAttendeePrice}}
+                                            </ng-container>
+                                            <!-- <a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-sm tooltip-top-right">
                                             <cds-icon shape="info-circle" size="md"></cds-icon>
                                             <span class="tooltip-content">Access recorded version only for one participant <br>unlimited viewing for 6 months ( Access information will
                                                 be emailed 24 hours after the completion of live
                                                 webinar)</span>
-                                        </a>
-                                </label>
+                                        </a> -->
+                                        </label>
 
-                            </clr-radio-wrapper>
-                            <clr-radio-wrapper>
-                                <input type="radio" clrRadio value="option4" formControlName="paymentFor" value="recgroupAttendeesPrice" />
-                                <!-- <label>Group Attendee - ${{webinar.recgroupAttendeesPrice}}
+                                    </clr-radio-wrapper>
+                                    <clr-radio-wrapper>
+                                        <input type="radio" clrRadio value="option4" formControlName="paymentFor"
+                                            value="recgroupAttendeesPrice" />
+                                        <!-- <label>Group Attendee - ${{webinar.recgroupAttendeesPrice}}
                                     <a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-sm">
                                         <cds-icon shape="info-circle" size="md"></cds-icon>
                                         <span class="tooltip-content">Access recorded version, Any number of participants unlimited viewing for 6 months ( Access information will be emailed 24 hours after the completion of live webinar) </span>
                                     </a>
                                 </label> -->
-                                <label>
-                                    <ng-container *ngIf="!isValid(webinar.disrecgroupAttendeesPrice)">
-                                            Group Attendees - ${{webinar.recgroupAttendeesPrice}}
-                                    </ng-container>
-                                    <ng-container *ngIf="isValid(webinar.disrecgroupAttendeesPrice)">
-                                            Group Attendees - <del>${{webinar.recgroupAttendeesPrice}}</del> ${{webinar.disrecgroupAttendeesPrice}}
-                                    </ng-container>
-                                    <a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-sm">
+                                        <label>
+                                            <ng-container *ngIf="!isValid(webinar.disrecgroupAttendeesPrice)">
+                                                Group Attendees - ${{webinar.recgroupAttendeesPrice}}
+                                            </ng-container>
+                                            <ng-container *ngIf="isValid(webinar.disrecgroupAttendeesPrice)">
+                                                Group Attendees - <del>${{webinar.recgroupAttendeesPrice}}</del>
+                                                ${{webinar.disrecgroupAttendeesPrice}}
+                                            </ng-container>
+                                            <!-- <a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-sm">
                                         <cds-icon shape="info-circle" size="md"></cds-icon>
                                         <span class="tooltip-content">Access recorded version, Any number of participants unlimited viewing for 6 months ( Access information will be emailed 24 hours after the completion of live webinar) </span>
-                                    </a>
-                                </label>
-                            </clr-radio-wrapper>
-                        </div>
+                                    </a> -->
+                                        </label>
+                                    </clr-radio-wrapper>
+                                </div>
 
 
-                        <div class="clr-col-12" *ngIf="webinar.webinarType === 'upcoming'">
-                            <h5 class="webinar-sub-title"><cds-icon shape="headphones"></cds-icon> + <cds-icon shape="microphone"></cds-icon> Combo Webinar</h5>
-                            <clr-radio-wrapper>
-                                <input type="radio" clrRadio value="option5"  formControlName="paymentFor" value="comboOneAttendeePrice" />
-                                <!-- <label>
+                                <div class="clr-col-12" *ngIf="webinar.webinarType === 'upcoming'">
+                                    <h5 class="webinar-sub-title">
+                                        <cds-icon shape="headphones"></cds-icon> + <cds-icon shape="microphone">
+                                        </cds-icon> Combo Webinar
+                                    </h5>
+                                    <clr-radio-wrapper>
+                                        <input type="radio" clrRadio value="option5" formControlName="paymentFor"
+                                            value="comboOneAttendeePrice" />
+                                        <!-- <label>
                                     One Attendee - ${{webinar.comboOneAttendeePrice}}
                                     <a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-sm">
                                         <cds-icon shape="info-circle" size="md"></cds-icon>
                                         <span class="tooltip-content">Access Combo (Recorded + Live) Version only for one participant <br>  Unlimited Viewing Recorded Version for 6 months ( Access information will be emailed 24 hours after the completion of live webinar)  </span>
                                     </a>
                                 </label> -->
-                                <label>
-                                    <ng-container *ngIf="!isValid(webinar.discomboOneAttendeePrice)">
-                                            One Attendee - ${{webinar.comboOneAttendeePrice}}
-                                    </ng-container>
-                                    <ng-container *ngIf="isValid(webinar.discomboOneAttendeePrice)">
-                                            One Attendee - <del>${{webinar.comboOneAttendeePrice}}</del> ${{webinar.discomboOneAttendeePrice}}
-                                    </ng-container>
-                                    <a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-sm">
+                                        <label>
+                                            <ng-container *ngIf="!isValid(webinar.discomboOneAttendeePrice)">
+                                                One Attendee - ${{webinar.comboOneAttendeePrice}}
+                                            </ng-container>
+                                            <ng-container *ngIf="isValid(webinar.discomboOneAttendeePrice)">
+                                                One Attendee - <del>${{webinar.comboOneAttendeePrice}}</del>
+                                                ${{webinar.discomboOneAttendeePrice}}
+                                            </ng-container>
+                                            <!-- <a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-sm">
                                         <cds-icon shape="info-circle" size="md"></cds-icon>
                                         <span class="tooltip-content">Access Combo (Recorded + Live) Version only for one participant <br>  Unlimited Viewing Recorded Version for 6 months ( Access information will be emailed 24 hours after the completion of live webinar)  </span>
-                                    </a>
-                                </label>
-                            </clr-radio-wrapper>
-                            <clr-radio-wrapper>
-                                <input type="radio" clrRadio value="option6"  formControlName="paymentFor" value="combogroupAttendeesPrice" />
-                                <!-- <label>
+                                    </a> -->
+                                        </label>
+                                    </clr-radio-wrapper>
+                                    <clr-radio-wrapper>
+                                        <input type="radio" clrRadio value="option6" formControlName="paymentFor"
+                                            value="combogroupAttendeesPrice" />
+                                        <!-- <label>
                                      Group Attendees - ${{webinar.combogroupAttendeesPrice}}
                                      <a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-sm">
                                         <cds-icon shape="info-circle" size="md"></cds-icon>
                                         <span class="tooltip-content">Access Combo (Recorded + Live) Version, Any number of participants<br>   Unlimited Viewing Recorded Version for 6 months ( Access information will be emailed 24 hours after the completion of live webinar) </span>
                                     </a>
                                 </label> -->
-                                <label>
-                                    <ng-container *ngIf="!isValid(webinar.discombogroupAttendeesPrice)">
-                                            Group Attendees - ${{webinar.combogroupAttendeesPrice}}
-                                    </ng-container>
-                                    <ng-container *ngIf="isValid(webinar.discombogroupAttendeesPrice)">
-                                            Group Attendees - <del>${{webinar.combogroupAttendeesPrice}}</del> ${{webinar.discombogroupAttendeesPrice}}
-                                    </ng-container>
-                                    <a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-sm">
+                                        <label>
+                                            <ng-container *ngIf="!isValid(webinar.discombogroupAttendeesPrice)">
+                                                Group Attendees - ${{webinar.combogroupAttendeesPrice}}
+                                            </ng-container>
+                                            <ng-container *ngIf="isValid(webinar.discombogroupAttendeesPrice)">
+                                                Group Attendees - <del>${{webinar.combogroupAttendeesPrice}}</del>
+                                                ${{webinar.discombogroupAttendeesPrice}}
+                                            </ng-container>
+                                            <!-- <a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-sm">
                                         <cds-icon shape="info-circle" size="md"></cds-icon>
                                         <span class="tooltip-content">Access Combo (Recorded + Live) Version, Any number of participants<br>   Unlimited Viewing Recorded Version for 6 months ( Access information will be emailed 24 hours after the completion of live webinar) </span>
-                                    </a>
-                                </label>
-                            </clr-radio-wrapper>
+                                    </a> -->
+                                        </label>
+                                    </clr-radio-wrapper>
+                                </div>
+                                <div class="clr-col-12">
+                                    <button class="btn btn-success btn-block add-cart-btn" (click)="addToCart()">Add
+                                        Cart</button>
+                                    <p class="error-text mar-top5" *ngIf="showError">Please login to Add to Cart</p>
+                                    <button class="btn btn-link btn-block" routerLink="/users/refund-policy">
+                                        <cds-icon shape="error-standard"></cds-icon> Refund Policy
+                                    </button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="card webinar-subscription-card">
+                    <div class="card-header">
+                        <span>Group Attendees</span>
+                    </div>
+                    <div class="card-block">
+                        <b>Max 6 participants (Both Live & Recorded)</b>
+                    </div>
+                </div>
+
+                <div class="card webinar-subscription-card">
+                    <div class="card-header" (click)="collapseLive.toggle(); checkToggle('live')" [attr.aria-expanded]="!isLiveCollapsed"
+                        aria-controls="collapseExample">
+                        <span>For Live - How it works        >></span>
+                    </div>
+                    <div class="card-block" #collapseLive="ngbCollapse" [(ngbCollapse)]="isLiveCollapsed">
+                        <div>->
+                            Access Information to join the session will be shared, 24 hours prior to the live session.
                         </div>
-                        <div class="clr-col-12">
-                            <button class="btn btn-success btn-block add-cart-btn" (click)="addToCart()">Add Cart</button>
-                            <p class="error-text mar-top5" *ngIf="showError">Please login to Add to Cart</p>
-                            <button class="btn btn-link btn-block" routerLink="/users/refund-policy"><cds-icon shape="error-standard"></cds-icon> Refund Policy</button>
-                        </div>
-                        </div>
-                        
-                    </form>
-                   </div>
-               </div>
+                        <div>-> Presentation Handout in .pdf format</div>
+                        <div>-> Presentation from the Speaker</div>
+                    </div>
+                </div>
+
+                <div class="card webinar-subscription-card">
+                    <div class="card-header" (click)="collapseRecord.toggle(); checkToggle('record')" [attr.aria-expanded]="!isRecordCollapsed"
+                        aria-controls="collapseExample">
+                        <span>For Recording - How it works      >></span>
+                    </div>
+                    <div class="card-block" #collapseRecord="ngbCollapse" [(ngbCollapse)]="isRecordCollapsed">
+                        <div>-> Recorded Session with credentials to view the webinar will be sent 24 hours post the
+                            completion of the Live webinar.</div>
+                        <div>-> Unlimited viewing for 6 months</div>
+                        <div>-> Presentation Handout in .pdf format</div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
         </div>
     </div>

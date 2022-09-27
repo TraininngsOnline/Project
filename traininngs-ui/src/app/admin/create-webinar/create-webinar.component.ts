@@ -149,7 +149,7 @@ export class CreateWebinarComponent implements OnInit {
       title: ['', Validators.required],
       author: ['', Validators.required],
       description: [''],
-      date: ['', Validators.required],
+      date: [''],
       pdtTime: [''],
       edtTime: [''],
       liveOneAttendeePrice: [''],
