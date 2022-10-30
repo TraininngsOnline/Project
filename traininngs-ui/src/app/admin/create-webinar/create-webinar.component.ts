@@ -85,7 +85,6 @@ export class CreateWebinarComponent implements OnInit {
       this.categories = response[0].Items;
       this.webinarTypes = response[1].Items;
       this.speakers = response[2].Items;
-      console.log(response);
     }, error => {
       console.log(error);
     });
