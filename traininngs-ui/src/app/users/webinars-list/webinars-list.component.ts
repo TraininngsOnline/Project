@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from '../services/users.service';
 import { environment } from '../../../environments/environment';
@@ -6,7 +6,15 @@ import { environment } from '../../../environments/environment';
 import { ClarityIcons, userIcon, clockIcon, alarmClockIcon, assignUserIcon, dollarIcon,filterIcon } from '@cds/core/icon';
 import { FormGroup, FormBuilder } from '@angular/forms';
 ClarityIcons.addIcons(userIcon,clockIcon,alarmClockIcon,assignUserIcon,dollarIcon,filterIcon);
-
+@Pipe ({  
+  name : 'transform'  
+})  
+export class transFormUrl implements PipeTransform {  
+  transform(val : string) : string {  
+    return val.replace(/ /g,"_")
+      
+  }  
+}  
 @Component({
   selector: 'app-webinars-list',
   templateUrl: './webinars-list.component.html',
@@ -34,6 +42,7 @@ export class WebinarsListComponent implements OnInit {
       this.getUpcomingWebinars(webinarType);
       this.page = 1;
     });
+
     this.getCategories();
     this.initForm();
   }
@@ -73,8 +82,10 @@ export class WebinarsListComponent implements OnInit {
     this.usersService.getWebinars(params).subscribe((response: any) => {
       this.webinars = response;
       this.unfilteredWebinars = [...response];
+
       this.webinarPriceType = type === 'ondemand' ? 'recOneAttendeePrice': 'liveOneAttendeePrice';
       this.disWebinarPriceType = `dis${this.webinarPriceType}`;
+
     }, error => {
       console.log(error);
     })
@@ -127,11 +138,6 @@ export class WebinarsListComponent implements OnInit {
     return Number(value) > 0 && Number(value) !== NaN;
   }
 
-  gotoWebDetails(title: string, id: string) {
-    const url = title.replace(/ /g,"_")
-
-    this.router.navigateByUrl(`/users/webinar-detail/${url}_${id}`)
-  }
 
   scroll(el: HTMLElement) {
     el.scrollIntoView();

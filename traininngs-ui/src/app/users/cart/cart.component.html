@@ -15,10 +15,10 @@
                                     <!-- <cds-icon shape="dollar"  size="md"></cds-icon>  -->
                                     Price: &nbsp;
                                     <ng-container *ngIf="!isValid(webinar[webinar.discountPayment])">
-                                        $ {{webinar[webinar.paymentFor]}}
+                                        {{webinar[webinar.paymentFor]}}
                                     </ng-container>
                                     <ng-container *ngIf="isValid(webinar[webinar.discountPayment])">
-                                            <del>${{webinar[webinar.paymentFor]}}</del> &nbsp; ${{webinar[webinar.discountPayment]}}
+                                            <del>${{webinar[webinar.paymentFor]}}</del> &nbsp;{{webinar[webinar.discountPayment]}}
                                     </ng-container>
                                 </div>
                                 <div class="clr-col-lg-5 clr-col-md-6">

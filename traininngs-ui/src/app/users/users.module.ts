@@ -6,7 +6,7 @@ import { UsersRoutingModule } from './users-routing.module';
 import { UsersComponent } from './users.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { WebinarsListComponent } from './webinars-list/webinars-list.component';
+import { transFormUrl, WebinarsListComponent } from './webinars-list/webinars-list.component';
 import { LoginComponent } from './login/login.component';
 import { DetailedWebinarComponent } from './detailed-webinar/detailed-webinar.component';
 import { AboutUsComponent } from './about-us/about-us.component';
@@ -46,7 +46,8 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
     SupportPageComponent,
     PrivacyPolicyComponent,
     TermsConditionsComponent,
-    RefundPolicyComponent
+    RefundPolicyComponent,
+    transFormUrl
   ],
   imports: [
     CommonModule,

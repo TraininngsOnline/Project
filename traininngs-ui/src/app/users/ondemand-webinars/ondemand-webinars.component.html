@@ -9,14 +9,14 @@
         
         <div class="clr-row">
             <div class="clr-col-xl-3 clr-col-lg-3 clr-col-md-6 clr-col-12" *ngFor="let webinar of sortByDate; let i=index">
-                <a href="{{baseUrl}}users/webinar-detail?title={{webinar.title}}&id={{webinar.id}}" class="main-webinar" *ngIf="i<4">
+                <a href="{{baseUrl}}users/webinar-detail/{{(webinar.title | transform)}}_{{webinar.id}}" class="main-webinar" *ngIf="i<4">
                     <div class="card webinar-card">
                         <div class="card-img">
                             <img src="{{webinar.webinarImageUrl}}" />
                         </div>
                         <div class="card-block">
                             <div class="card-text ">
-                                <a href="{{baseUrl}}users/webinar-detail?title={{webinar.title}}&id={{webinar.id}}">
+                                <a href="{{baseUrl}}users/webinar-detail/{{(webinar.title | transform)}}_{{webinar.id}}">
                                     <h2 class="webinar-title">{{webinar.title}}</h2>
                                 </a>
                                 <!-- <h2 class="webinar-title">{{webinar.title}}</h2> -->
@@ -41,7 +41,7 @@
                                 <div class="webinar-details">
                                     <div class="webinar-details_price">
                                         <!-- <cds-icon shape="dollar" size="sm"></cds-icon> <span>{{webinar.liveOneAttendeePrice}} USD</span> -->
-                                        $
+                                        
                                         <!-- <span>{{webinar.liveOneAttendeePrice}} USD</span> -->
                                         <ng-container *ngIf="!isValid(webinar.disrecOneAttendeePrice)">
                                             {{webinar.liveOneAttendeePrice}}

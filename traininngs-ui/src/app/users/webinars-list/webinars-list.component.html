@@ -21,8 +21,8 @@
                                      </div>
                                      <div class="clr-col-xl-8 clr-col-lg-7">
                                          <!-- <h2 class="webinar-title" title="{{webinar.title}}">{{webinar.title}}</h2> -->
-                                         <!-- href="{{baseUrl}}users/webinar-detail?title={{webinar.title}}&id={{webinar.id}}" -->
-                                         <a href="javascript:void" (click)="gotoWebDetails(webinar.title, webinar.id)">
+                                         <!-- href="{{baseUrl}}users/webinar-detail?title={{webinar.title}}&id={{webinar.id}}" (click)="gotoWebDetails(webinar.title, webinar.id)"-->
+                                         <a href="{{baseUrl}}users/webinar-detail/{{(webinar.title | transform)}}_{{webinar.id}}" >
                                             <h1 class="webinar-title">{{webinar.title}}</h1>
                                         </a>
                                          <p class="webinar-desc">{{webinar.description}}</p>
@@ -42,17 +42,17 @@
                                          </div>
                                          <div class="webinar-info-last">
                                              <div class="price">
-                                                 <!-- $ {{webinar[webinarPriceType]}} -->
+                                                 <!-- $ {{webinar[webinarPriceType]}}  <del>${{webinar[webinarPriceType]}}</del> -->
                                                  <ng-container *ngIf="!isValid(webinar[disWebinarPriceType])">
                                                     ${{webinar[webinarPriceType]}}
                                                 </ng-container>
                                                 <ng-container *ngIf="isValid(webinar[disWebinarPriceType])">
-                                                        <del>${{webinar[webinarPriceType]}}</del> ${{webinar[disWebinarPriceType]}}
+                                                        ${{webinar[disWebinarPriceType]}}
                                                 </ng-container>
                                              </div>
                                              <div class="view-more">
                                                  <!-- <button class="btn btn-success" (click)="viewDetails(webinar)"><cds-icon shape="eye"></cds-icon> View More</button> -->
-                                                 <a class="btn btn-icon btn-success" href="{{baseUrl}}users/webinar-detail?title={{webinar.title}}&id={{webinar.id}}">
+                                                 <a class="btn btn-icon btn-success" href="{{baseUrl}}users/webinar-detail/{{(webinar.title | transform)}}_{{webinar.id}}">
                                                     <cds-icon shape="eye" size="sm"></cds-icon> View More
                                                 </a>
                                              </div>
